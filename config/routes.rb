@@ -1,7 +1,9 @@
 Bookmarcus::Application.routes.draw do
-  root to: 'static_pages#home'
-  resources :bookmarks
+  get "bookmarks/new"
 
+  root to: 'static_pages#home'
+
+  match '/new', to: 'bookmarks#new' 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

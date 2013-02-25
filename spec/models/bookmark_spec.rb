@@ -1,0 +1,22 @@
+require 'spec_helper'
+
+describe Bookmark do
+  before { @bookmark = Bookmark.new(name: "Example User", url: "www.example.com") }
+
+  subject { @bookmark }
+
+  it { should respond_to(:name) }
+  it { should respond_to(:url) }
+
+  it { should be_valid }
+
+  describe "when name is not present" do
+    before { @bookmark.name = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when url is not present" do
+    before { @bookmark.url = " " }
+    it { should_not be_valid }
+  end
+end
